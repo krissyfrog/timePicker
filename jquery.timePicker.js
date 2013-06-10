@@ -123,6 +123,24 @@
         $tpDiv.hide();
       }
     });
+
+    var validate = function(){
+
+      var time = $(elm).val();
+      var regexp = /^([1-9]|0[1-9]|1[0-2]):[0-5][0-9]\s?(A|P)M$/i;
+      var valid = regexp.test(time);
+
+      if(!valid){
+        $(elm).addClass("error");
+      }else{
+        $(elm).removeClass("error");
+      }
+      
+    }
+
+    //listen for focus out to do validation on the date
+    $(elm).focusout(validate);
+
     // Keypress doesn't repeat on Safari for non-text keys.
     // Keydown doesn't repeat on Firefox and Opera on Mac.
     // Using kepress for Opera and Firefox and keydown for the rest seems to

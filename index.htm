@@ -22,6 +22,9 @@
   .error {
     border:1px solid red;
   }
+  input.error{
+    outline-color: #ff0000;
+  }
   </style>
   
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
@@ -32,11 +35,11 @@
     $("#time1").timePicker();
     // 02.00 AM - 03.30 PM, 15 minutes steps.
     $("#time2").timePicker({
-  startTime: "02.00",  // Using string. Can take string or Date object.
-  endTime: new Date(0, 0, 0, 15, 30, 0),  // Using Date object.
+  startTime: "00:00",  // Using string. Can take string or Date object.
+  endTime: "23:30",  // Using Date object.
   show24Hours: false,
-  separator:'.',
-  step: 15});
+  separator:':',
+  step: 30});
     
     // An example how the two helper functions can be used to achieve 
     // advanced functionality.
@@ -89,7 +92,7 @@
 <pre><code>// Default.
 $("#time1").timePicker();</code></pre>
 
-<div><input type="text" id="time2" size="10" value="12.00 PM"/></div>
+<div><input type="text" id="time2" size="10" value="12:00 AM"/></div>
 <pre><code>// 02.00 AM - 03.30 PM, 15 minutes steps.
 $("#time2").timePicker({
   startTime: "02.00", // Using string. Can take string or Date object.
